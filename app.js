@@ -2,21 +2,23 @@ const board = document.querySelector('#board')
 const BOX_NUMBER = 7000
 const colors = ['pink', 'blue','green','yellow','white','grey','brown']
 
+
+
 for (let i = 0; i<BOX_NUMBER; i++) {
 
 const box = document.createElement('div')
-
 box.classList.add('box')
-box.addEventListener('click', () => onClick(box))
 box.addEventListener('mouseover', () => setColor(box))
 box.addEventListener('mouseleave', () => removeColor(box))
-
+box.addEventListener('click',()=> setWhite(box))
 board.append(box)
 
 }
-function onClick(element) {
-    element.style.background= 'white'
 
+function setWhite(element) {const box = document.querySelectorAll('.box')
+box.forEach((element)=>{element.style.backgroundColor='#fff'}
+
+)
 }
 
 function setColor(element) {
@@ -27,6 +29,8 @@ function setColor(element) {
 function removeColor(element) {
     element.style.background = '#1d1d1d'
     element.style.boxShadow = `0 0 2px #000`
+    const box = document.querySelectorAll('.box')
+box.forEach((element)=>{element.style.backgroundColor='#1d1d1d'})
 }
 function getRandomColor() {
   const index =  Math.floor(Math.random()*colors.length)
